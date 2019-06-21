@@ -1,25 +1,20 @@
-const express = require('express');
-const amqp = require('amqplib/callback_api');
-const app = express();
+const open = require('amqplib').connect('amqp://localhost');
 
+module.exports = async (id) => {
+    const q = '1';
 
-const http_port = 3001;
-
-amqp.connect('amqp://localhost', (err, connection) => {
-    connection.createChannel((err, channel) => {
-        let queue = 'First';
-
-        channel.assertQueue(queue, { durable: false });
-        console.log(`Waiting for massage in ${queue}`)
-        channel.consume(queue, (message) => {
-            console.log(`Received ${message.content}`);
-        }, {noAck: true})
+    open.then(function(conn) {
+        return conn.createChannel();
     })
-    setTimeout(() => {
-        connection.close();
-        process.exit()
-    }, 500)
-})
-
-
-app.listen(http_port , () => console.log(`Listen port ${http_port}`))
+    .then(function(ch) {
+        return ch.assertQueue(q).then(function(ok) {
+            return ch.consume(q, function(msg) {
+                if (msg !== null) {
+                    console.log('msg',msg.content.toString());
+                    ch.ack(msg);
+                }
+            });
+        });
+    })
+    .catch(console.warn);
+}
