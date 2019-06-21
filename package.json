@@ -1,9 +1,6 @@
 {
-  "name": "my-app",
+  "name": "node-notification-scheduler-service",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "http://localhost:8080",
-  "proxy": "http://localhost:8080",
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
@@ -31,14 +28,5 @@
     "generate-users": "NODE_OPTIONS=--max-old-space-size=140096 node ./server/controllers/user/generate.js",
     "start:dev": "./node_modules/.bin/nodemon ./bin/www -w app.js -w server",
     "migrate": "sequelize db:migrate"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }
