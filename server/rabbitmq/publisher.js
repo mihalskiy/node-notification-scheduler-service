@@ -2,7 +2,6 @@ const open = require('amqplib').connect('amqp://localhost');
 
 module.exports = async (id, content) => {
     const queue = id.toString();
-    console.log(queue)
     const data = JSON.stringify(content);
     open
     .then((conn) => {

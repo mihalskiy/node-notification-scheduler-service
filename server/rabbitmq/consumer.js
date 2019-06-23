@@ -2,7 +2,6 @@ var open = require('amqplib').connect('amqp://localhost');
 
 module.exports = async id => {
     const q = id.toString();
-    console.log(q)
     open
     .then((conn) => {
         return conn.createChannel();
