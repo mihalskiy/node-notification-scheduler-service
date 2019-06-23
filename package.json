@@ -26,7 +26,7 @@
   },
   "scripts": {
     "start": "nodemon ./bin/www -w server -e html,js,scss --ignore build",
-    "generate-users": "NODE_OPTIONS=--max-old-space-size=140096 node ./server/controllers/user/generate.js",
+    "generate-users": "NODE_OPTIONS=--max-old-space-size=140096 node server/seed/generateUsers.js",
     "start:dev": "./node_modules/.bin/nodemon ./bin/www -w app.js -w server",
     "migrate": "sequelize db:migrate"
   }

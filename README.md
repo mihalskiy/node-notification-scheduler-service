@@ -1,4 +1,4 @@
-# This repo houses code for node-notification-scheduler-service (using Sequelize and PostgreSQL)"
+# This repo houses code for Send users to message  (using Sequelize, rabbitMQ, and PostgreSQL)"
 
 If you dont have install  node-js, please go this link [https://nodejs.org](https://nodejs.org)
 
@@ -36,10 +36,21 @@ Let's begin by installing Sequelize CLI package. ```npm install -g sequelize-cli
 # Project Setup
 
 1. Use command  ```npm install``` for install dependices
-2. Now try running the migrate ```npm run migrate```
-3. Now try running the application server ```npm run server```
-and visiting [http://localhost:8000](http://localhost:8000). 
-3. Running the client to do this, we run the following command:  ```npm run client```
+2. create in core project file ```.env```
+```$xslt
+EXAMPLE .env file
+USERS=10000 // this is example of how many you need to generate users
+HTTP_PORT=8080 //this is an example for a run your project on port 
+
+//To make things a little easier, an object literal syntax is also supported, like in this example which will log a message every Sunday at 10:53pm:
+HOUR=10 //(0-23)
+MINUTE=53 //(0-59)
+DAY_OF_WEEK=0 //(0-6) Starting with Sunday
+```
+3. Now try running the migrate ```npm run migrate```
+3. Now try running the seed users ```npm run generate-users```
+4. Now try running the application server ```npm start```
+and visiting [http://localhost:8080](http://localhost:8080). 
 
 Have fun! smile
 

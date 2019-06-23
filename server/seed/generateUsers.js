@@ -1,5 +1,7 @@
 const faker = require('faker');
-const {User} = require('../../models');
+const {User} = require('../models');
+require('dotenv').config();
+
 
 const generator = (schema, min = 1, max) => {
     max = max || min
@@ -14,11 +16,11 @@ const clientsSchema = {
     email: '{{internet.email}}'
 };
 
-const users = generator(clientsSchema, 1000000, 1000000)
+const users = generator(clientsSchema, process.env.USERS, process.env.USERS)
 
-console.time('time create 1 million records');
+console.time(`time create ${process.env.USERS} records`);
 console.log('users records - ', users.length);
-console.timeEnd('time create 1 million records');
+console.timeEnd(`time create ${process.env.USERS} records`);
 
 const list = users.map((item) => {
     return {
@@ -31,9 +33,9 @@ const list = users.map((item) => {
 
 
 try {
-    console.time('time save 1 million records');
+    console.time(`time save  ${process.env.USERS} records`);
         User.bulkCreate(list);
-    console.timeEnd('time save 1 million records');
+    console.timeEnd(`time save  ${process.env.USERS} records`);
 } catch (error) {
     console.error(error)
 }

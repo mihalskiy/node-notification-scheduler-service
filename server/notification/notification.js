@@ -3,6 +3,8 @@ const publisher = require('../rabbitmq/publisher');
 const schedule = require('node-schedule');
 const consumer = require('../rabbitmq/consumer');
 const Op = require('Sequelize').Op;
+require('dotenv').config();
+
 
 
 module.exports = async (app) => {
@@ -30,6 +32,7 @@ module.exports = async (app) => {
             });
             await updateStatus(index, status);
             await publisher(index, users);
+            await getMessage();
       }
     };
 
@@ -69,9 +72,8 @@ module.exports = async (app) => {
     };
 
 
-    const j = schedule.scheduleJob({hour: 13, minute: 10, dayOfWeek: 0}, async () => {
+    const j = schedule.scheduleJob({hour: process.env.HOUR, minute: process.env.MINUTE, dayOfWeek: process.env.DAY_OF_WEEK}, async () => {
         await postMessage();
-        await getMessage();
     });
 
 };
