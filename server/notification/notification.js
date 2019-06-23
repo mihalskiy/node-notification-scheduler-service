@@ -53,7 +53,7 @@ module.exports = async (app) => {
     };
 
     const postMessage = async () => {
-        const status = 'completed';
+        const status = null;
         const total = await count(status);
         await sendData(total);
     };
