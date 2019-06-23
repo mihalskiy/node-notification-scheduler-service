@@ -1,33 +1,37 @@
 {
   "name": "node-notification-scheduler-service",
   "version": "0.1.0",
-  "dependencies": {
-    "@material-ui/core": "^3.9.2",
-    "@material-ui/icons": "^3.0.2",
-    "amqplib": "^0.5.3",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
-    "cookie-parser": "^1.4.4",
-    "cors": "^2.8.5",
-    "dotenv": "^8.0.0",
-    "express": "^4.16.4",
-    "express-session": "^1.15.6",
-    "faker": "^4.1.0",
-    "jsonwebtoken": "^8.5.0",
-    "morgan": "^1.9.1",
-    "node-schedule": "^1.3.2",
-    "nodemon": "^1.18.10",
-    "passport": "^0.4.0",
-    "pg": "6.1.0",
-    "pg-hstore": "^2.3.2",
-    "readme-md-generator": "^0.3.0",
-    "sequelize": "^5.1.0",
-    "sequelize-cli": "^5.5.0"
-  },
   "scripts": {
     "start": "nodemon ./bin/www -w server -e html,js,scss --ignore build",
     "generate-users": "NODE_OPTIONS=--max-old-space-size=140096 node server/seed/generateUsers.js",
     "start:dev": "./node_modules/.bin/nodemon ./bin/www -w app.js -w server",
     "migrate": "sequelize db:migrate"
-  }
+  },
+  "dependencies": {
+    "amqplib": "^0.5.3",
+    "body-parser": "^1.18.3",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "faker": "^4.1.0",
+    "morgan": "^1.9.1",
+    "node-schedule": "^1.3.2",
+    "nodemon": "^1.18.10",
+    "pg": "6.1.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^5.1.0",
+    "sequelize-cli": "^5.5.0"
+  },
+  "keywords": [
+    "rabbitmq",
+    "docker",
+    "boilerplate",
+    "microservice"
+  ],
+  "author": "mihalskiy <mihalskiy.rv@gmail.com>",
+
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mihalskiy/node-notification-scheduler-service/issues"
+  },
+  "homepage": "https://github.com/mihalskiy/node-notification-scheduler-service#readme"
 }
