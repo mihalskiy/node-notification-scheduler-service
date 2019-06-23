@@ -42,7 +42,9 @@ EXAMPLE .env file
 USERS=10000 // this is example of how many you need to generate users
 HTTP_PORT=8080 //this is an example for a run your project on port 
 
-//To make things a little easier, an object literal syntax is also supported, like in this example which will log a message every Sunday at 10:53pm:
+//To make things a little easier, an object literal 
+//syntax is also supported, like in this example which 
+//will log a message every Sunday at 10:53pm:
 HOUR=10 //(0-23)
 MINUTE=53 //(0-59)
 DAY_OF_WEEK=0 //(0-6) Starting with Sunday
