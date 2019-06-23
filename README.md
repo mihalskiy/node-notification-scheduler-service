@@ -14,6 +14,9 @@ Let's begin by installing Sequelize CLI package. ```npm install -g sequelize-cli
 
 ### Update and Install PostgreSQL on ubuntu 18.04, please go this link [install-and-use-postgresql](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-18-04)
 
+# Downloading and Installing RabbitMQ
+  
+### Update and Install RabbitMQ, please go this link [install-and-use-rabbitMQ](https://www.rabbitmq.com/download.html)
 
 # Config Setup
 
